@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.service.snapclient"
+       name="Snapclient"
+       version="1.0.103"
+       provider-name="Maja Pieper (coderpussy)">
+  <requires>
+    <!-- <import addon="os.libreelec.tv" version="9.0"/> -->
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.service" library="service.py" start="login">
+    <provides>service</provides>
+  </extension>
+  <extension point="xbmc.python.library" library="addon.py">
+    <provides></provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Snapclient: Synchronous multi-room audio client</summary>
+    <summary lang="de">Snapclient: Synchroner Multi-Room Audio Client</summary>
+    <description lang="en">Snapclient (0.24.0-1) is a Snapcast client. Snapcast is a multi-room client-server audio system, where all clients are time synchronized with the server to play perfectly synced audioplays.</description>
+    <description lang="de">Snapclient (0.24.0-1) ist ein Snapcast Client. Snapcast ist ein Multi-Room Client-Server Audiosystem, bei dem alle Clients mit dem Server zeitsynchronisiert sind, um perfekt synchronisierte Audiostücke abzuspielen.</description>
+    <disclaimer lang="en"></disclaimer>
+    <platform>all</platform>
+    <news>
+103
+- New Snapcast client v0.24.0-1
+
+102
+- New snapcast client v0.22.0-1
+
+101
+- Always restart service
+- Improve latency setting
+- Adjusted for osmc
+
+100
+- Initial addon
+    </news>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.png</fanart>
+    </assets>
+  </extension>
+</addon>

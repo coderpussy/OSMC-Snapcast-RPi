@@ -1,0 +1,70 @@
+# Kodi Media Center language file
+# Addon Name: snapclient
+# Addon id: service.snapclient
+# Addon Provider: Team LibreELEC
+msgid ""
+msgstr ""
+
+msgctxt "#30000"
+msgid "Snapclient"
+msgstr ""
+
+msgctxt "#30001"
+msgid "List sound cards"
+msgstr "Soundkarten anzeigen"
+
+msgctxt "#30002"
+msgid "Sound card"
+msgstr "Soundkarte"
+
+msgctxt "#30003"
+msgid "Host ID"
+msgstr ""
+
+msgctxt "#30004"
+msgid "Port"
+msgstr ""
+
+msgctxt "#30005"
+msgid "Priority"
+msgstr "Priorität"
+
+msgctxt "#30006"
+msgid "Latency"
+msgstr "Latenz"
+
+msgctxt "#30007"
+msgid "Kodi"
+msgstr ""
+
+msgctxt "#30008"
+msgid "Stop Snapclient when Kodi plays"
+msgstr "Stoppe Snapclient wenn Kodi spielt"
+
+msgctxt "#30009"
+msgid "Rasperry Pi"
+msgstr ""
+
+msgctxt "#30010"
+msgid "Manage onboard audio"
+msgstr "Konfiguration Onboard Audio"
+
+msgctxt "#30011"
+msgid "Onboard audio playback route"
+msgstr "Onboard Audio Playback Route"
+
+msgctxt "#30012"
+msgid "Autodetect"
+msgstr "Automatisch"
+
+msgctxt "#30013"
+msgid "Jack"
+msgstr "3,5mm Klinkenausgang"
+
+msgctxt "#30014"
+msgid "HDMI"
+msgstr "HDMI Ausgang"
+
+msgctxt "#30015"
+msgid "Available sound cards"
+msgstr "Verfügbare Soundkarten"

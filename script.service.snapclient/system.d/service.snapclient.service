@@ -1,0 +1,11 @@
+[Unit]
+Description=Snapclient
+After=network-online.target time-sync.target sound.target
+
+[Service]
+Type=forking
+ExecStart=/bin/sh /home/osmc/.kodi/addons/script.service.snapclient/resources/bin/snapclient.start
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
