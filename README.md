@@ -1,4 +1,4 @@
-# OSMC-Snapcast
+# OSMC Snapcast for Raspberry Pi
 
 This OSMC Snapcast RPi addons bring now the possibility to let run both, Snapserver and Snapclient, independent or together serving audio from Kodi Source.
 For now the Snapserver is limited to serve only Kodi audio trough ALSA loopback device.
