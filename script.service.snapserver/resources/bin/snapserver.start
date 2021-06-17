@@ -1,0 +1,209 @@
+#!/bin/sh
+
+# SPDX-License-Identifier: GPL-2.0
+# Copyright (C) 2018-present Team LibreELEC (https://libreelec.tv)
+
+#. /etc/profile
+#oe_setup_addon service.snapserver
+
+# config="pulseaudio.conf"
+# link="/storage/.config/pulse-daemon.conf.d/50-snapserver.conf"
+# mkdir -p "$(dirname $link)"
+# ln -sf "$ADDON_HOME/$config" "$link"
+# if [ ! -e "$ADDON_HOME/$config" ]; then
+#   cp "$ADDON_DIR/config/$config" "$ADDON_HOME"
+# fi
+
+# file="/tmp/snapkodi"
+# sink_name="Snapserver"
+# if [ -z "$(pactl list short | grep $sink_name)" ]; then
+#   pactl load-module module-pipe-sink \
+#                     file="$file" \
+#                     rate=48000 \
+#                     sink_name="$sink_name" \
+#                     sink_properties=device.description="$sink_name"
+# fi
+
+
+# 1. Need to have the snapserver config files from kodi addon dirs (snapserver.conf as settings.xml and server.json)
+ADDONSETTINGS=`cat /home/osmc/.kodi/userdata/addon_data/script.service.snapserver/settings.xml`
+ADDONDIR="/home/osmc/.kodi/addons/script.service.snapserver"
+SNAPSERVERCONF="/home/osmc/.kodi/addons/script.service.snapserver/resources/config/snapserver.conf"
+
+# 2. Check if snapserver should start at kodi mediacenter start
+ss_se=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="server_enabled"/ {print $3}')
+
+# Exit if Snapserver is not enabled
+if [ "$ss_se" != "true" ]; then
+  exit 0
+fi
+
+# Snapserver kodi settings parse to variables
+ss_d=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="daemon"/ {print $3}')
+ss_st=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="server.threads"/ {print $3}')
+ss_sp=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="server.pidfile"/ {print $3}')
+ss_su=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="server.user"/ {print $3}')
+ss_sg=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="server.group"/ {print $3}')
+ss_sd=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="server.datadir"/ {print $3}')
+
+ss_he=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="http_enabled"/ {print $3}')
+ss_hp=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="http.port"/ {print $3}')
+ss_hbta=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="http.bind_to_address"/ {print $3}')
+ss_hdr=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="http.doc_root"/ {print $3}')
+
+ss_te=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="tcp_enabled"/ {print $3}')
+ss_tp=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="tcp.port"/ {print $3}')
+ss_tbta=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="tcp.bind_to_address"/ {print $3}')
+
+ss_strbta=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="stream.bind_to_address"/ {print $3}')
+ss_strp=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="stream.port"/ {print $3}')
+ss_strs=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="stream.source"/ {print $3}')
+ss_strsf=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="stream.sampleformat"/ {print $3}')
+ss_strc=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="stream.codec"/ {print $3}')
+ss_strcm=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="stream.chunk_ms"/ {print $3}')
+ss_strb=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="stream.buffer"/ {print $3}')
+ss_strstm=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="stream.send_to_muted"/ {print $3}')
+
+ss_ls=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="logging.sink"/ {print $3}')
+ss_lfe=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="logging_filter_enabled"/ {print $3}')
+ss_lft=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="logging_filter_tag"/ {print $3}')
+ss_lfl=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="logging_filter_level"/ {print $3}')
+
+# Set string concatenation variables
+ss_sc="--config $SNAPSERVERCONF"
+
+[ -n "$ss_d" ] && ss_d="$ss_d" #--daemon $ss_d"
+[ -n "$ss_st" ] && ss_st="--server.threads $ss_st"
+[ -n "$ss_sp" ] && ss_sp="--server.pidfile $ss_sp"
+[ -n "$ss_su" ] && ss_su="--server.user $ss_su"
+[ -n "$ss_sg" ] && ss_sg="--server.group=$ss_sg"
+[ -n "$ss_sd" ] && ss_sd="--server.datadir=$ADDONDIR/$ss_sd/"
+
+if [ "$ss_he" = "true" ]; then
+  [ -n "$ss_he" ] && ss_he="--http.enabled 1"
+  [ -n "$ss_hp" ] && ss_hp="--http.port $ss_hp"
+  [ -n "$ss_hbta" ] && ss_hbta="--http.bind_to_address $ss_hbta"
+  [ -n "$ss_hdr" ] && ss_hdr="--http.doc_root=$ADDONDIR/$ss_hdr"
+else
+  ss_he="--http.enabled 0"
+  ss_hp=""
+  ss_hbta=""
+  ss_hdr=""
+fi
+if [ "$ss_te" = "true" ]; then
+  [ -n "$ss_te" ] && ss_te="--tcp.enabled 1"
+  [ -n "$ss_tp" ] && ss_tp="--tcp.port $ss_tp"
+  [ -n "$ss_tbta" ] && ss_tbta="--tcp.bind_to_address $ss_tbta"
+else
+  ss_te="--tcp.enabled 0"
+  ss_tp=""
+  ss_tbta=""
+fi
+
+[ -n "$ss_strbta" ] && ss_strbta="--stream.bind_to_address $ss_strbta"
+[ -n "$ss_strp" ] && ss_strp="--stream.port $ss_strp"
+
+# Setup stream source
+case "$ss_strs" in
+  Default)
+    #ss_strs="--stream.source pipe:///tmp/snapfifo?name=Default"
+    ss_strs=""
+    ;;
+  Kodi)
+    #ss_strs="--stream.source pipe://$file?name=Kodi"
+    ss_strs="--stream.source alsa://?name=kodi&device=hw:Loopback,1,0"
+    ;;
+  Spotify)
+    #ss_strs="--stream.source spotify:///librespot?name=Spotify"
+    ss_strs=""
+    ;;
+  *)
+    #ss_strs="--stream.source airplay:///shairport-sync?name=AirPlay"
+    ss_strs=""
+    ;;
+esac
+
+[ -n "$ss_strsf" ] && ss_strsf="--stream.sampleformat $ss_strsf"
+[ -n "$ss_strc" ] && ss_strc="--stream.codec $ss_strc"
+[ -n "$ss_strcm" ] && ss_strcm="--stream.chunk_ms $ss_strcm"
+[ -n "$ss_strb" ] && ss_strb="--stream.buffer $ss_strb"
+
+if [ "$ss_strstm" = "true" ]; then
+  ss_strstm="--stream.send_to_muted 1"
+else
+  ss_strstm="--stream.send_to_muted 0"
+fi
+
+[ -n "$ss_ls" ] && ss_ls="--logging.sink=$ss_ls"
+
+if [ "$ss_lfe" = "true" ]; then
+  ss_lf="--logging.filter $ss_lft:$ss_lfl"
+else
+  ss_lf=""
+fi
+
+
+# 3. Check if kernel driver snd-aloop is loaded
+MODULE="snd_aloop"
+SNDALOOP="false"
+
+if [ -n "$(lsmod | grep "$MODULE")" ]; then
+  #echo "$MODULE is loaded";
+  SNDALOOP="true"
+fi
+if [ -z "$(lsmod | grep "$MODULE")" ]; then
+  #echo "$MODULE is not loaded"
+  modprobe "$MODULE" >/dev/null 2>&1
+  sleep 2
+
+  if [ -n "$(lsmod | grep "$MODULE")" ]; then
+    #echo "$MODULE is loaded";
+    SNDALOOP="true"
+  fi
+fi
+
+# 5. Start snapserver if loopback device is loaded in relation to addon settings
+if [ "$SNDALOOP" = "true" ]; then
+  #echo "Snapserver is starting...";
+
+  # server start
+  nice -n $ss_d \
+  $ADDONDIR/resources/bin/snapserver \
+  $ss_sc \
+  $ss_st \
+  $ss_sp \
+  $ss_su \
+  $ss_sg \
+  $ss_sd \
+  $ss_he \
+  $ss_hp \
+  $ss_hbta \
+  $ss_hdr \
+  $ss_te \
+  $ss_tp \
+  $ss_tbta \
+  $ss_strbta \
+  $ss_strp \
+  $ss_strs \
+  $ss_strsf \
+  $ss_strc \
+  $ss_strcm \
+  $ss_strb \
+  $ss_strstm \
+  $ss_ls \
+  $ss_lf \
+  > /dev/null
+fi
+
+# 6. Check if Snapclient should start after snapserver with kodi stream source
+
+# Possible check commands
+
+# Returns active or inactive status
+# systemctl show -p ActiveState snapclient | cut -d'=' -f2
+
+# Returns running or dead status
+# systemctl show -p SubState snapclient | cut -d'=' -f2
+
+# Returns 0 if daemon is dead or 1 if running
+# ps -ef | grep -v grep | grep snapclient | wc -l 

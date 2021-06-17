@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.service.snapserver"
+       name="Snapserver"
+       version="1.0.100"
+       provider-name="Maja Pieper (coderpussy)">
+  <requires>
+    <!-- <import addon="os.libreelec.tv" version="9.0"/> -->
+    <import addon="xbmc.python" version="2.1.0"/>
+  </requires>
+  <extension point="xbmc.service" library="service.py" start="login">
+    <provides>service</provides>
+  </extension>
+  <!--<extension point="xbmc.python.library" library="addon.py">
+    <provides></provides>
+  </extension>-->
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en">Snapserver: Synchronous multi-room audio server</summary>
+    <summary lang="de">Snapserver: Synchroner Multi-Room Audio Server</summary>
+    <description lang="en">Snapserver (0.25.0-1) is a Snapcast server. Snapcast is a multi-room client-server audio system, where all clients are time synchronized with the server to play perfectly synced audioplays.</description>
+    <description lang="de">Snapserver (0.25.0-1) ist ein Snapcast Server. Snapcast ist ein Multi-Room Client-Server Audiosystem, bei dem alle Clients mit dem Server zeitsynchronisiert sind, um perfekt synchronisierte Audiostücke abzuspielen.</description>
+    <disclaimer lang="en"></disclaimer>
+    <platform>all</platform>
+    <news>
+100
+- Initial addon
+    </news>
+    <assets>
+      <icon>resources/icon.png</icon>
+    </assets>
+  </extension>
+</addon>

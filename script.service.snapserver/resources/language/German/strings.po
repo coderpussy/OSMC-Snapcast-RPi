@@ -1,0 +1,130 @@
+# Kodi Media Center language file
+# Addon Name: snapserver
+# Addon id: service.snapserver
+# Addon Provider: Team LibreELEC
+msgid ""
+msgstr ""
+
+msgctxt "#30000"
+msgid "Server"
+msgstr ""
+
+msgctxt "#30001"
+msgid "Enable Snapserver"
+msgstr "Snapserver aktivieren"
+
+msgctxt "#30002"
+msgid "Daemon priority"
+msgstr "Daemon Priorität"
+
+msgctxt "#30003"
+msgid "Threads"
+msgstr ""
+
+msgctxt "#30004"
+msgid "Pidfile"
+msgstr ""
+
+msgctxt "#30005"
+msgid "User"
+msgstr "Benutzer"
+
+msgctxt "#30006"
+msgid "Group"
+msgstr "Gruppe"
+
+msgctxt "#30007"
+msgid "Data directory"
+msgstr "Datenordner"
+
+msgctxt "#30008"
+msgid "HTTP"
+msgstr ""
+
+msgctxt "#30009"
+msgid "Enable HTTP"
+msgstr "HTTP aktivieren"
+
+msgctxt "#30010"
+msgid "Port"
+msgstr ""
+
+msgctxt "#30011"
+msgid "Bind address"
+msgstr "Adressbindung"
+
+msgctxt "#30012"
+msgid "Document Root"
+msgstr "Dokument Start"
+
+msgctxt "#30013"
+msgid "TCP"
+msgstr ""
+
+msgctxt "#30014"
+msgid "Enable TCP"
+msgstr "TCP aktivieren"
+
+msgctxt "#30015"
+msgid "Port"
+msgstr ""
+
+msgctxt "#30016"
+msgid "Bind address"
+msgstr "Adressbindung"
+
+msgctxt "#30017"
+msgid "Stream"
+msgstr ""
+
+msgctxt "#30018"
+msgid "Bind address"
+msgstr "Adressbindung"
+
+msgctxt "#30019"
+msgid "Port"
+msgstr ""
+
+msgctxt "#30020"
+msgid "Stream Source"
+msgstr "Stream Quelle"
+
+msgctxt "#30021"
+msgid "Sample Format"
+msgstr ""
+
+msgctxt "#30022"
+msgid "Codec"
+msgstr ""
+
+msgctxt "#30023"
+msgid "Chunk (ms)"
+msgstr ""
+
+msgctxt "#30024"
+msgid "Buffer (ms)"
+msgstr ""
+
+msgctxt "#30025"
+msgid "Send to muted Clients"
+msgstr "An pausierte Clients senden"
+
+msgctxt "#30026"
+msgid "Logging"
+msgstr ""
+
+msgctxt "#30027"
+msgid "Logging Sink"
+msgstr ""
+
+msgctxt "#30028"
+msgid "Enable logging filter"
+msgstr "Logging Filter aktivieren"
+
+msgctxt "#30029"
+msgid "Filter Tag"
+msgstr ""
+
+msgctxt "#30030"
+msgid "Filter level"
+msgstr "Filter Stufe"

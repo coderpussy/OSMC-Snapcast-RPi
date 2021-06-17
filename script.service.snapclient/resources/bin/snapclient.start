@@ -20,32 +20,75 @@
 #. /etc/profile
 #oe_setup_addon script.service.snapclient
 
-. /etc/os-release
-case "$LIBREELEC_ARCH" in
-  RPi*.arm)
-    if [ "$sc_a" == "true" ]; then
-      ALSA="/proc/asound/ALSA"
-      if [ ! -e "$ALSA" ]; then
-        echo "Starting Raspberry Pi onboard audio"
-        dtparam audio=on
-        sleep 1
-      fi
-      if [ -e "$ALSA" ]; then
-        echo "Setting Raspberry Pi onboard audio playback route"
-        index="$(readlink $ALSA)"
-        index="${index##*card}"
-        amixer -c "$index" cset name="PCM Playback Route" "$sc_r"
-      fi
-    fi
-    ;;
-esac
+ADDONSETTINGS=`cat /home/osmc/.kodi/userdata/addon_data/script.service.snapclient/settings.xml`
+ADDONDIR="/home/osmc/.kodi/addons/script.service.snapclient"
 
+sc_a=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_a"/ {print $3}')
+sc_h=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_h"/ {print $3}')
+sc_k=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_k"/ {print $3}')
+sc_l=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_l"/ {print $3}')
+sc_n=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_n"/ {print $3}')
+sc_addr=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_addr"/ {print $3}')
+sc_p=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_p"/ {print $3}')
+sc_r=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_r"/ {print $3}')
+sc_s=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_s"/ {print $3}')
+
+sc_ps=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_ps"/ {print $3}')
+sc_ps_for=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_ps_for"/ {print $3}')
+sc_ps_bufft=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_ps_bufft"/ {print $3}')
+sc_ps_frags=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_ps_frags"/ {print $3}')
+
+sc_ls=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_ls"/ {print $3}')
+sc_lf=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_lf"/ {print $3}')
+sc_lf_tag=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_lf_tag"/ {print $3}')
+sc_lf_level=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_lf_level"/ {print $3}')
+
+#. /etc/os-release
+#case "$LIBREELEC_ARCH" in
+#  RPi*.arm)
+#    if [ "$sc_a" == "true" ]; then
+#      ALSA="/proc/asound/ALSA"
+#      if [ ! -e "$ALSA" ]; then
+#        echo "Starting Raspberry Pi onboard audio"
+#        dtparam audio=on
+#        sleep 1
+#      fi
+#      if [ -e "$ALSA" ]; then
+#        echo "Setting Raspberry Pi onboard audio playback route"
+#        index="$(readlink $ALSA)"
+#        index="${index##*card}"
+#        amixer -c "$index" cset name="PCM Playback Route" "$sc_r"
+#      fi
+#    fi
+#    ;;
+#esac
+
+[ -n "$sc_ls" ] && sc_LS="--logsink=$sc_ls"
+[ -n "$sc_n" ] && sc_N="--daemon $sc_n"
+[ -n "$sc_addr" ] && sc_HOST="--host $sc_addr"
 [ -n "$sc_h" ] && sc_H="--hostID $sc_h"
+[ -n "$sc_l" ] && sc_L="--latency $sc_l"
+[ -n "$sc_p" ] && sc_P="--port $sc_p"
 [ -n "$sc_s" ] && sc_S="--soundcard $sc_s"
 
-/home/osmc/.kodi/addons/script.service.snapclient/resources/bin/snapclient \
-  --daemon "$sc_n" \
-  $sc_H \
-#  --latency "$sc_l" \#
-#  --port "$sc_p" \#
-  $sc_S
+if [ "$sc_ps" = "true" ]; then
+  sc_PLAYER="--player $sc_ps_for:buffer_time=$sc_ps_bufft,fragments=$sc_ps_frags"
+fi
+
+if [ "$sc_lf" = "true" ]; then
+  sc_LOGFILTER="--logfilter $sc_lf_tag:$sc_lf_level"
+fi
+
+# client start
+#nice -n $sc_N \
+$ADDONDIR/resources/bin/snapclient \
+$sc_LS \
+$sc_N \
+$sc_HOST \
+$sc_H \
+$sc_L \
+$sc_P \
+$sc_S \
+$sc_PLAYER \
+$sc_LOGFILTER
+> /dev/null

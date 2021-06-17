@@ -23,6 +23,7 @@ import xbmcgui
 
 SNAPCLIENT = os.path.join(xbmcaddon.Addon().getAddonInfo('path'), 'resources/bin', 'snapclient')
 
+line = ''
 card = ''
 cards = []
 lines = subprocess.check_output([SNAPCLIENT, '--list']).splitlines()
@@ -33,6 +34,10 @@ for line in lines:
     else:
         cards.append(card)
         card = ''
+
+# If last line was not empty, make sure to add the last card
+if line != '' and card != '':
+    cards.append(card)
 
 dialog = xbmcgui.Dialog()
 dialog.select(xbmcaddon.Addon().getLocalizedString(30015), cards)

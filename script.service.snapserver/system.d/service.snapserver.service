@@ -1,0 +1,10 @@
+[Unit]
+Description=Snapserver
+After=network-online.target time-sync.target sound.target
+
+[Service]
+ExecStart=/bin/sh /home/osmc/.kodi/addons/script.service.snapserver/resources/bin/snapserver.start
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

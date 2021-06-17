@@ -2,17 +2,30 @@
 <settings>
   <category  label="30000">
     <setting label="30001" type="action" action="RunAddon(script.service.snapclient)"/>
-    <setting label="30002" type="text"   id="sc_s" default=""/>
-    <setting label="30003" type="text"   id="sc_h" default=""/>
+    <setting label="30002" type="text" id="sc_s" default=""/>
+    <setting label="30016" type="ipaddress" id="sc_addr" default=""/>
+    <setting label="30003" type="text" id="sc_h" default=""/>
     <setting label="30004" type="number" id="sc_p" default="1704"/>
     <setting label="30005" type="slider" id="sc_n" default="-3" range="-20,1,19" option="int"/>
     <setting label="30006" type="number" id="sc_l" default="0"/>
+    
+    <setting label="30017" type="lsep"/>
+    <setting label="30018" type="bool" id="sc_ps" default="true"/>
+    <setting label="30019" type="text" id="sc_ps_for" default="alsa" enable="eq(-1,true)"/>
+    <setting label="30020" type="number" id="sc_ps_bufft" default="80" subsetting="true" enable="eq(-2,true)"/>
+    <setting label="30021" type="number" id="sc_ps_frags" default="4" subsetting="true" enable="eq(-3,true)"/>
+    
+    <setting label="30022" type="lsep"/>
+    <setting label="30023" type="labelenum" id="sc_ls" default="system" values="null|system|stdout|stderr"/>
+    <setting label="30024" type="bool" id="sc_lf" default="true"/>
+    <setting label="30025" type="text" id="sc_lf_tag" default="*" subsetting="true" enable="eq(-1,true)"/>
+    <setting label="30026" type="labelenum" id="sc_lf_level" default="info" values="trace|debug|info|notice|warning|error|fatal" subsetting="true" enable="eq(-2,true)"/>
   </category>
   <category  label="30007">
-    <setting label="30008" type="bool"   id="sc_k" default="false"/>
+    <setting label="30008" type="bool" id="sc_k" default="false"/>
   </category>
   <category  label="30009">
-    <setting label="30010" type="bool"   id="sc_a" default="false"/>
-    <setting label="30011" type="enum"   id="sc_r" lvalues="30012|30013|30014" visible="eq(-1,true)"/>
+    <setting label="30010" type="bool" id="sc_a" default="false"/>
+    <setting label="30011" type="enum" id="sc_r" lvalues="30012|30013|30014" visible="eq(-1,true)"/>
   </category>
 </settings>

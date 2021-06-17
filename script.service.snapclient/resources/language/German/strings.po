@@ -42,7 +42,7 @@ msgid "Stop Snapclient when Kodi plays"
 msgstr "Stoppe Snapclient wenn Kodi spielt"
 
 msgctxt "#30009"
-msgid "Rasperry Pi"
+msgid "Raspberry Pi"
 msgstr ""
 
 msgctxt "#30010"
@@ -68,3 +68,47 @@ msgstr "HDMI Ausgang"
 msgctxt "#30015"
 msgid "Available sound cards"
 msgstr "Verfügbare Soundkarten"
+
+msgctxt "#30016"
+msgid "Server"
+msgstr ""
+
+msgctxt "#30017"
+msgid "Player"
+msgstr ""
+
+msgctxt "#30018"
+msgid "Enable Player Settings"
+msgstr "Player Einstellungen einschalten"
+
+msgctxt "#30019"
+msgid "Settings for"
+msgstr "Einstellungen für"
+
+msgctxt "#30020"
+msgid "Buffer Time"
+msgstr "Pufferzeit"
+
+msgctxt "#30021"
+msgid "Fragments"
+msgstr "Fragmente"
+
+msgctxt "#30022"
+msgid "Logging"
+msgstr ""
+
+msgctxt "#30023"
+msgid "Logsink"
+msgstr ""
+
+msgctxt "#30024"
+msgid "Enable Logfilter"
+msgstr "Logfilter einschalten"
+
+msgctxt "#30025"
+msgid "Logfilter Tag"
+msgstr ""
+
+msgctxt "#30026"
+msgid "Logfilter Level"
+msgstr "Logfilter Stufe"

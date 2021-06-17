@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+  <category label="30000">
+    <setting label="30001" type="bool" id="server_enabled" default="true"/>
+    <setting label="30002" type="slider" id="daemon" default="0" range="-20,1,19" option="int" subsetting="true" enable="eq(-1,true)"/>
+    <setting label="30003" type="slider" id="server.threads" default="-1" range="-1,1,4" option="int" subsetting="true" enable="eq(-2,true)"/>
+    <setting label="30004" type="text" id="server.pidfile" default="/var/run/snapserver/pid" subsetting="true" enable="eq(-3,true)"/>
+    <setting label="30005" type="text" id="server.user" default="" subsetting="true" enable="eq(-4,true)"/>
+    <setting label="30006" type="text" id="server.group" default="" subsetting="true" enable="eq(-5,true)"/>
+    <setting label="30007" type="text" id="server.datadir" default="resources/config" subsetting="true" enable="eq(-6,true)"/>
+  </category>
+  <category label="30008">
+    <setting label="30009" type="bool" id="http_enabled" default="true"/>
+    <setting label="30010" type="number" id="http.port" default="1780" subsetting="true" enable="eq(-1,true)"/>
+    <setting label="30011" type="ipaddress" id="http.bind_to_address" default="0.0.0.0" subsetting="true" enable="eq(-2,true)"/>
+    <setting label="30012" type="text" id="http.doc_root" default="resources/snapweb" subsetting="true" enable="eq(-3,true)"/>
+  </category>
+  <category label="30013">
+    <setting label="30014" type="bool" id="tcp_enabled" default="true"/>
+    <setting label="30015" type="number" id="tcp.port" default="1705" subsetting="true" enable="eq(-1,true)"/>
+    <setting label="30016" type="ipaddress" id="tcp.bind_to_address" default="0.0.0.0" subsetting="true" enable="eq(-2,true)"/>
+  </category>
+  <category label="30017">
+    <setting label="30018" type="ipaddress" id="stream.bind_to_address" default="0.0.0.0"/>
+    <setting label="30019" type="number" id="stream.port" default="1704"/>
+    <setting label="30020" type="labelenum" id="stream.source" default="Kodi" values="AirPlay|Default|Kodi|Spotify"/>
+    <setting label="30021" type="text" id="stream.sampleformat" default="48000:16:2"/>
+    <setting label="30022" type="labelenum" id="stream.codec" default="flac" values="flac|ogg|opus|pcm"/>
+    <setting label="30023" type="number" id="stream.chunk_ms" default="20"/>
+    <setting label="30024" type="number" id="stream.buffer" default="1000"/>
+    <setting label="30025" type="bool" id="stream.send_to_muted" default="false"/>
+  </category>
+  <category label="30026">
+    <setting label="30027" type="labelenum" id="logging.sink" default="system" values="null|system|stdout|stderr"/>
+    <setting label="30028" type="bool" id="logging_filter_enabled" default="true"/>
+    <setting label="30029" type="text" id="logging_filter_tag" default="*" subsetting="true" enable="eq(-1,true)"/>
+    <setting label="30030" type="labelenum" id="logging_filter_level" default="info" values="trace|debug|info|notice|warning|error|fatal" subsetting="true" enable="eq(-2,true)"/>
+  </category>
+</settings>
