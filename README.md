@@ -34,6 +34,10 @@ cd ~/.kodi/addons/script.service.snapclient/resources/bin/
 chmod +x ./snapclient*
 ````
 Same for Snapserver if you want to use it. Just replace all occurences of `snapclient` to `snapserver` from code above.
+````sh
+cd ~/.kodi/addons/script.service.snapserver/resources/bin/
+chmod +x ./snapserver*
+````
 
 ### System service
 
@@ -64,8 +68,8 @@ sudo cp service.snapserver.service /usr/lib/systemd/system/snapserver.service
 cd /usr/lib/systemd/system
 
 sudo systemctl enable snapserver
-sudo systemctl status snapclient
-sudo systemctl start snapclient
+sudo systemctl status snapserver
+sudo systemctl start snapserver
 ````
 
 ## Usage
