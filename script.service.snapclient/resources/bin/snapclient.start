@@ -13,25 +13,25 @@ if [ "$sc_ce" != "true" ]; then
   exit 0
 fi
 
-sc_a=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_a"/ {print $3}')
-sc_h=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_h"/ {print $3}')
-sc_k=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_k"/ {print $3}')
-sc_l=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_l"/ {print $3}')
-sc_n=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_n"/ {print $3}')
-sc_addr=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_addr"/ {print $3}')
-sc_p=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_p"/ {print $3}')
-sc_r=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_r"/ {print $3}')
-sc_s=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_s"/ {print $3}')
+sc_a=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_manage_onboard_audio"/ {print $3}')
+sc_h=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_hostID"/ {print $3}')
+#sc_k=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_stop_if_kodi_play"/ {print $3}')
+sc_l=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_latency"/ {print $3}')
+sc_d=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_daemon"/ {print $3}')
+sc_sa=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_host"/ {print $3}')
+sc_p=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_port"/ {print $3}')
+sc_r=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_onboard_audio_playback_route"/ {print $3}')
+sc_s=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_soundcard"/ {print $3}')
 
-sc_ps=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_ps"/ {print $3}')
-sc_ps_for=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_ps_for"/ {print $3}')
-sc_ps_bufft=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_ps_bufft"/ {print $3}')
-sc_ps_frags=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_ps_frags"/ {print $3}')
+sc_ps=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_player_settings"/ {print $3}')
+sc_ps_for=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_player_settings_for"/ {print $3}')
+sc_ps_bufft=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_player_settings_buffer_time"/ {print $3}')
+sc_ps_frags=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_player_settings_fragments"/ {print $3}')
 
-sc_ls=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_ls"/ {print $3}')
-sc_lf=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_lf"/ {print $3}')
-sc_lf_tag=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_lf_tag"/ {print $3}')
-sc_lf_level=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_lf_level"/ {print $3}')
+sc_ls=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_logsink"/ {print $3}')
+sc_lf=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_enable_logfilter"/ {print $3}')
+sc_lf_tag=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_logfilter_tag"/ {print $3}')
+sc_lf_level=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_logfilter_level"/ {print $3}')
 
 #case "$LIBREELEC_ARCH" in
 #  RPi*.arm)
@@ -52,32 +52,32 @@ sc_lf_level=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_lf_level"/ 
 #    ;;
 #esac
 
-[ -n "$sc_ls" ] && sc_LS="--logsink=$sc_ls"
-[ -n "$sc_n" ] && sc_N="--daemon $sc_n"
-[ -n "$sc_addr" ] && sc_HOST="--host $sc_addr"
-[ -n "$sc_h" ] && sc_H="--hostID $sc_h"
-[ -n "$sc_l" ] && sc_L="--latency $sc_l"
-[ -n "$sc_p" ] && sc_P="--port $sc_p"
-[ -n "$sc_s" ] && sc_S="--soundcard $sc_s"
+[ -n "$sc_ls" ] && sc_ls="--logsink=$sc_ls"
+[ -n "$sc_d" ] && sc_d="--daemon $sc_d"
+[ -n "$sc_sa" ] && sc_sa="--host $sc_sa"
+[ -n "$sc_h" ] && sc_h="--hostID $sc_h"
+[ -n "$sc_l" ] && sc_l="--latency $sc_l"
+[ -n "$sc_p" ] && sc_p="--port $sc_p"
+[ -n "$sc_s" ] && sc_s="--soundcard $sc_s"
 
 if [ "$sc_ps" = "true" ]; then
-  sc_PLAYER="--player $sc_ps_for:buffer_time=$sc_ps_bufft,fragments=$sc_ps_frags"
+  sc_player="--player $sc_ps_for:buffer_time=$sc_ps_bufft,fragments=$sc_ps_frags"
 fi
 
 if [ "$sc_lf" = "true" ]; then
-  sc_LOGFILTER="--logfilter $sc_lf_tag:$sc_lf_level"
+  sc_logfilter="--logfilter $sc_lf_tag:$sc_lf_level"
 fi
 
 # client start
 #nice -n $sc_N \
 $ADDONDIR/resources/bin/snapclient \
-$sc_LS \
-$sc_N \
-$sc_HOST \
-$sc_H \
-$sc_L \
-$sc_P \
-$sc_S \
-$sc_PLAYER \
-$sc_LOGFILTER
+$sc_ls \
+$sc_d \
+$sc_sa \
+$sc_h \
+$sc_l \
+$sc_p \
+$sc_s \
+$sc_player \
+$sc_logfilter \
 > /dev/null

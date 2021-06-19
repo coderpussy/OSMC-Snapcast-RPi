@@ -28,21 +28,21 @@ class Player(xbmc.Player):
         self.start('start')
 
     def onPlayBackEnded(self):
-        if xbmcaddon.Addon().getSetting('sc_k') == 'true':
+        if xbmcaddon.Addon().getSetting('sc_stop_if_kodi_play') == 'true':
             xbmc.sleep(500)
             if not self.isPlaying():
                 systemctl('start')
 
     def onPlayBackStarted(self):
-        if xbmcaddon.Addon().getSetting('sc_k') == 'true':
+        if xbmcaddon.Addon().getSetting('sc_stop_if_kodi_play') == 'true':
             systemctl('stop')
 
     def onPlayBackStopped(self):
-        if xbmcaddon.Addon().getSetting('sc_k') == 'true':
+        if xbmcaddon.Addon().getSetting('sc_stop_if_kodi_play') == 'true':
             systemctl('start')
 
     def start(self, command):
-        if xbmcaddon.Addon().getSetting('sc_k') == 'true':
+        if xbmcaddon.Addon().getSetting('sc_stop_if_kodi_play') == 'true':
             if self.isPlaying():
                 systemctl('stop')
             else:

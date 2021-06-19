@@ -1,20 +1,20 @@
 <settings version="2">
     <setting id="client_enabled" default="true">true</setting>
-    <setting id="sc_a" default="true">false</setting>
-    <setting id="sc_h" default="true"></setting>
-    <setting id="sc_k" default="true">false</setting>
-    <setting id="sc_addr" default="true"></setting>
-    <setting id="sc_l" default="true">0</setting>
-    <setting id="sc_n" default="true">-3</setting>
-    <setting id="sc_p" default="true">1704</setting>
-    <setting id="sc_r" default="true">0</setting>
-    <setting id="sc_s" default="true"></setting>
-    <setting id="sc_ps" default="true">true</setting>
-    <setting id="sc_ps_for" default="true">alsa</setting>
-    <setting id="sc_ps_bufft" default="true">80</setting>
-    <setting id="sc_ps_frags" default="true">4</setting>
-    <setting id="sc_ls" default="true">system</setting>
-    <setting id="sc_lf" default="true">true</setting>
-    <setting id="sc_lf_tag" default="true">*</setting>
-    <setting id="sc_lf_level" default="true">info</setting>
+    <setting id="sc_manage_onboard_audio" default="true">false</setting>
+    <setting id="sc_hostID" default="true"></setting>
+    <setting id="sc_stop_if_kodi_play" default="true">false</setting>
+    <setting id="sc_host" default="true"></setting>
+    <setting id="sc_latency" default="true">0</setting>
+    <setting id="sc_daemon" default="true">-3</setting>
+    <setting id="sc_port" default="true">1704</setting>
+    <setting id="sc_onboard_audio_playback_route" default="true">0</setting>
+    <setting id="sc_soundcard" default="true"></setting>
+    <setting id="sc_player_settings" default="true">true</setting>
+    <setting id="sc_player_settings_for" default="true">alsa</setting>
+    <setting id="sc_player_settings_buffer_time" default="true">80</setting>
+    <setting id="sc_player_settings_fragments" default="true">4</setting>
+    <setting id="sc_logsink" default="true">system</setting>
+    <setting id="sc_enable_logfilter" default="true">true</setting>
+    <setting id="sc_logfilter_tag" default="true">*</setting>
+    <setting id="sc_logfilter_level" default="true">info</setting>
 </settings>

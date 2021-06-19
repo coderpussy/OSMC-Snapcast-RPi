@@ -3,30 +3,30 @@
   <category  label="30000">
     <setting label="30001" type="bool" id="client_enabled" default="true"/>
     <setting label="30002" type="action" action="RunAddon(script.service.snapclient)" enable="eq(-1,true)"/>
-    <setting label="30003" type="text" id="sc_s" default="" enable="eq(-2,true)"/>
-    <setting label="30004" type="ipaddress" id="sc_addr" default="" enable="eq(-3,true)"/>
-    <setting label="30005" type="text" id="sc_h" default="" enable="eq(-4,true)"/>
-    <setting label="30006" type="number" id="sc_p" default="1704" enable="eq(-5,true)"/>
-    <setting label="30007" type="slider" id="sc_n" default="-3" range="-20,1,19" option="int" enable="eq(-6,true)"/>
-    <setting label="30008" type="number" id="sc_l" default="0" enable="eq(-7,true)"/>
+    <setting label="30003" type="text" id="sc_soundcard" default="" enable="eq(-2,true)"/>
+    <setting label="30004" type="ipaddress" id="sc_host" default="" enable="eq(-3,true)"/>
+    <setting label="30005" type="text" id="sc_hostID" default="" enable="eq(-4,true)"/>
+    <setting label="30006" type="number" id="sc_port" default="1704" enable="eq(-5,true)"/>
+    <setting label="30007" type="slider" id="sc_daemon" default="-3" range="-20,1,19" option="int" enable="eq(-6,true)"/>
+    <setting label="30008" type="number" id="sc_latency" default="0" enable="eq(-7,true)"/>
     
     <setting label="30009" type="lsep"/>
-    <setting label="30010" type="bool" id="sc_ps" default="true"/>
-    <setting label="30011" type="text" id="sc_ps_for" default="alsa" enable="eq(-1,true)"/>
-    <setting label="30012" type="number" id="sc_ps_bufft" default="80" subsetting="true" enable="eq(-2,true)"/>
-    <setting label="30013" type="number" id="sc_ps_frags" default="4" subsetting="true" enable="eq(-3,true)"/>
+    <setting label="30010" type="bool" id="sc_player_settings" default="true"/>
+    <setting label="30011" type="text" id="sc_player_settings_for" default="alsa" enable="eq(-1,true)"/>
+    <setting label="30012" type="number" id="sc_player_settings_buffer_time" default="80" subsetting="true" enable="eq(-2,true)"/>
+    <setting label="30013" type="number" id="sc_player_settings_fragments" default="4" subsetting="true" enable="eq(-3,true)"/>
     
     <setting label="30014" type="lsep"/>
-    <setting label="30015" type="labelenum" id="sc_ls" default="system" values="null|system|stdout|stderr"/>
-    <setting label="30016" type="bool" id="sc_lf" default="true"/>
-    <setting label="30017" type="text" id="sc_lf_tag" default="*" subsetting="true" enable="eq(-1,true)"/>
-    <setting label="30018" type="labelenum" id="sc_lf_level" default="info" values="trace|debug|info|notice|warning|error|fatal" subsetting="true" enable="eq(-2,true)"/>
+    <setting label="30015" type="labelenum" id="sc_logsink" default="system" values="null|system|stdout|stderr"/>
+    <setting label="30016" type="bool" id="sc_enable_logfilter" default="true"/>
+    <setting label="30017" type="text" id="sc_logfilter_tag" default="*" subsetting="true" enable="eq(-1,true)"/>
+    <setting label="30018" type="labelenum" id="sc_logfilter_level" default="info" values="trace|debug|info|notice|warning|error|fatal" subsetting="true" enable="eq(-2,true)"/>
   </category>
   <category  label="30019">
-    <setting label="30020" type="bool" id="sc_k" default="false"/>
+    <setting label="30020" type="bool" id="sc_stop_if_kodi_play" default="false"/>
   </category>
   <category  label="30021">
-    <setting label="30022" type="bool" id="sc_a" default="false"/>
-    <setting label="30023" type="enum" id="sc_r" lvalues="30024|30025|30026" visible="eq(-1,true)"/>
+    <setting label="30022" type="bool" id="sc_manage_onboard_audio" default="false"/>
+    <setting label="30023" type="enum" id="sc_onboard_audio_playback_route" lvalues="30024|30025|30026" visible="eq(-1,true)"/>
   </category>
 </settings>
