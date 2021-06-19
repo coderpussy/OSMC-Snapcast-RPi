@@ -1,7 +1,6 @@
 # Kodi Media Center language file
 # Addon Name: snapclient
 # Addon id: service.snapclient
-# Addon Provider: Team LibreELEC
 msgid ""
 msgstr ""
 
@@ -10,105 +9,109 @@ msgid "Snapclient"
 msgstr ""
 
 msgctxt "#30001"
+msgid "Enable Snapclient"
+msgstr "Snapclient aktivieren"
+
+msgctxt "#30002"
 msgid "List sound cards"
 msgstr "Soundkarten anzeigen"
 
-msgctxt "#30002"
+msgctxt "#30003"
 msgid "Sound card"
 msgstr "Soundkarte"
 
-msgctxt "#30003"
-msgid "Host ID"
-msgstr ""
-
 msgctxt "#30004"
-msgid "Port"
-msgstr ""
-
-msgctxt "#30005"
-msgid "Priority"
-msgstr "Priorität"
-
-msgctxt "#30006"
-msgid "Latency"
-msgstr "Latenz"
-
-msgctxt "#30007"
-msgid "Kodi"
-msgstr ""
-
-msgctxt "#30008"
-msgid "Stop Snapclient when Kodi plays"
-msgstr "Stoppe Snapclient wenn Kodi spielt"
-
-msgctxt "#30009"
-msgid "Raspberry Pi"
-msgstr ""
-
-msgctxt "#30010"
-msgid "Manage onboard audio"
-msgstr "Konfiguration Onboard Audio"
-
-msgctxt "#30011"
-msgid "Onboard audio playback route"
-msgstr "Onboard Audio Playback Route"
-
-msgctxt "#30012"
-msgid "Autodetect"
-msgstr "Automatisch"
-
-msgctxt "#30013"
-msgid "Jack"
-msgstr "3,5mm Klinkenausgang"
-
-msgctxt "#30014"
-msgid "HDMI"
-msgstr "HDMI Ausgang"
-
-msgctxt "#30015"
-msgid "Available sound cards"
-msgstr "Verfügbare Soundkarten"
-
-msgctxt "#30016"
 msgid "Server"
 msgstr ""
 
-msgctxt "#30017"
+msgctxt "#30005"
+msgid "Host ID"
+msgstr ""
+
+msgctxt "#30006"
+msgid "Port"
+msgstr ""
+
+msgctxt "#30007"
+msgid "Priority"
+msgstr "Priorität"
+
+msgctxt "#30008"
+msgid "Latency"
+msgstr "Latenz"
+
+msgctxt "#30009"
 msgid "Player"
 msgstr ""
 
-msgctxt "#30018"
+msgctxt "#30010"
 msgid "Enable Player Settings"
 msgstr "Player Einstellungen einschalten"
 
-msgctxt "#30019"
+msgctxt "#30011"
 msgid "Settings for"
 msgstr "Einstellungen für"
 
-msgctxt "#30020"
+msgctxt "#30012"
 msgid "Buffer Time"
 msgstr "Pufferzeit"
 
-msgctxt "#30021"
+msgctxt "#30013"
 msgid "Fragments"
 msgstr "Fragmente"
 
-msgctxt "#30022"
+msgctxt "#30014"
 msgid "Logging"
 msgstr ""
 
-msgctxt "#30023"
+msgctxt "#30015"
 msgid "Logsink"
 msgstr ""
 
-msgctxt "#30024"
+msgctxt "#30016"
 msgid "Enable Logfilter"
 msgstr "Logfilter einschalten"
 
-msgctxt "#30025"
+msgctxt "#30017"
 msgid "Logfilter Tag"
 msgstr ""
 
-msgctxt "#30026"
+msgctxt "#30018"
 msgid "Logfilter Level"
 msgstr "Logfilter Stufe"
+
+msgctxt "#30019"
+msgid "Kodi"
+msgstr ""
+
+msgctxt "#30020"
+msgid "Stop Snapclient when Kodi plays"
+msgstr "Stoppe Snapclient wenn Kodi spielt"
+
+msgctxt "#30021"
+msgid "Raspberry Pi"
+msgstr ""
+
+msgctxt "#30022"
+msgid "Manage onboard audio"
+msgstr "Konfiguration Onboard Audio"
+
+msgctxt "#30023"
+msgid "Onboard audio playback route"
+msgstr "Onboard Audio Playback Route"
+
+msgctxt "#30024"
+msgid "Autodetect"
+msgstr "Automatisch"
+
+msgctxt "#30025"
+msgid "Jack"
+msgstr "3,5mm Klinkenausgang"
+
+msgctxt "#30026"
+msgid "HDMI"
+msgstr "HDMI Ausgang"
+
+msgctxt "#30027"
+msgid "Available sound cards"
+msgstr "Verfügbare Soundkarten"

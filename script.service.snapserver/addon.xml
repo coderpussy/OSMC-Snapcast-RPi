@@ -4,15 +4,11 @@
        version="1.0.100"
        provider-name="Maja Pieper (coderpussy)">
   <requires>
-    <!-- <import addon="os.libreelec.tv" version="9.0"/> -->
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
   <extension point="xbmc.service" library="service.py" start="login">
     <provides>service</provides>
   </extension>
-  <!--<extension point="xbmc.python.library" library="addon.py">
-    <provides></provides>
-  </extension>-->
   <extension point="xbmc.addon.metadata">
     <summary lang="en">Snapserver: Synchronous multi-room audio server</summary>
     <summary lang="de">Snapserver: Synchroner Multi-Room Audio Server</summary>

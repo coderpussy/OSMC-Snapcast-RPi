@@ -1,11 +1,6 @@
 #!/bin/sh
 
-# SPDX-License-Identifier: GPL-2.0
-# Copyright (C) 2018-present Team LibreELEC (https://libreelec.tv)
-
-#. /etc/profile
-#oe_setup_addon service.snapserver
-
+######################################################################
 # config="pulseaudio.conf"
 # link="/storage/.config/pulse-daemon.conf.d/50-snapserver.conf"
 # mkdir -p "$(dirname $link)"
@@ -23,7 +18,7 @@
 #                     sink_name="$sink_name" \
 #                     sink_properties=device.description="$sink_name"
 # fi
-
+######################################################################
 
 # 1. Need to have the snapserver config files from kodi addon dirs (snapserver.conf as settings.xml and server.json)
 ADDONSETTINGS=`cat /home/osmc/.kodi/userdata/addon_data/script.service.snapserver/settings.xml`
@@ -148,23 +143,19 @@ MODULE="snd_aloop"
 SNDALOOP="false"
 
 if [ -n "$(lsmod | grep "$MODULE")" ]; then
-  #echo "$MODULE is loaded";
   SNDALOOP="true"
 fi
 if [ -z "$(lsmod | grep "$MODULE")" ]; then
-  #echo "$MODULE is not loaded"
   modprobe "$MODULE" >/dev/null 2>&1
   sleep 2
 
   if [ -n "$(lsmod | grep "$MODULE")" ]; then
-    #echo "$MODULE is loaded";
     SNDALOOP="true"
   fi
 fi
 
 # 5. Start snapserver if loopback device is loaded in relation to addon settings
 if [ "$SNDALOOP" = "true" ]; then
-  #echo "Snapserver is starting...";
 
   # server start
   nice -n $ss_d \

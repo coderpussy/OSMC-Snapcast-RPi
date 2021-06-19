@@ -4,7 +4,6 @@
        version="1.0.104"
        provider-name="Maja Pieper (coderpussy)">
   <requires>
-    <!-- <import addon="os.libreelec.tv" version="9.0"/> -->
     <import addon="xbmc.python" version="2.1.0"/>
   </requires>
   <extension point="xbmc.service" library="service.py" start="login">

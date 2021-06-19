@@ -1,14 +1,11 @@
-# SPDX-License-Identifier: GPL-2.0
-# Copyright (C) 2018-present Team LibreELEC (https://libreelec.tv)
+################################################################################
+#      Original form LibreELEC - https://libreelec.tv
+################################################################################
 
 import subprocess
 import xbmc
 import xbmcaddon
 
-
-#def systemctl(command):
-#    subprocess.call(
-#        ['systemctl', command, xbmcaddon.Addon().getAddonInfo('id')])
 
 def systemctl(command):
     subprocess.call(['systemctl', command, 'snapserver.service'])

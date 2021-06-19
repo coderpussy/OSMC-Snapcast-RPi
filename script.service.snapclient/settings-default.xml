@@ -1,4 +1,5 @@
 <settings version="2">
+    <setting id="client_enabled" default="true">true</setting>
     <setting id="sc_a" default="true">false</setting>
     <setting id="sc_h" default="true"></setting>
     <setting id="sc_k" default="true">false</setting>

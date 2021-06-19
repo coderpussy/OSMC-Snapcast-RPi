@@ -1,7 +1,6 @@
 # Kodi Media Center language file
 # Addon Name: snapserver
 # Addon id: service.snapclient
-# Addon Provider: Team LibreELEC
 msgid ""
 msgstr ""
 
