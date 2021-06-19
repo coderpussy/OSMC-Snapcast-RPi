@@ -1,5 +1,5 @@
 <settings version="2">
-    <setting id="server_enabled" default="true">true</setting>
+    <setting id="server_enabled" default="true">false</setting>
     <setting id="daemon.priority" default="true">0</setting>
     <setting id="server.threads" default="true">-1</setting>
     <setting id="server.pidfile" default="true">/var/run/snapserver/pid</setting>

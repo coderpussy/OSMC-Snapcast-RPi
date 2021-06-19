@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
   <category label="30000">
-    <setting label="30001" type="bool" id="server_enabled" default="true"/>
+    <setting label="30001" type="bool" id="server_enabled" default="false"/>
     <setting label="30002" type="slider" id="daemon.priority" default="0" range="-20,1,19" option="int" subsetting="true" enable="eq(-1,true)"/>
     <setting label="30003" type="slider" id="server.threads" default="-1" range="-1,1,4" option="int" subsetting="true" enable="eq(-2,true)"/>
     <setting label="30004" type="text" id="server.pidfile" default="/var/run/snapserver/pid" subsetting="true" enable="eq(-3,true)"/>
