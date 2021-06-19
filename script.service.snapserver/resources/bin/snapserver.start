@@ -34,7 +34,7 @@ if [ "$ss_se" != "true" ]; then
 fi
 
 # Snapserver kodi settings parse to variables
-ss_d=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="daemon"/ {print $3}')
+ss_d=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="daemon.priority"/ {print $3}')
 ss_st=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="server.threads"/ {print $3}')
 ss_sp=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="server.pidfile"/ {print $3}')
 ss_su=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="server.user"/ {print $3}')
