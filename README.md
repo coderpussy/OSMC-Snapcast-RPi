@@ -27,7 +27,7 @@ No further customization should be necessary. Except in case of special sound ca
 Copy the addons individually or together into your Raspberry Pi OSMC Kodi addon folder using your preferred method.
 
 You can also clone the Git repository to Kodi, but make sure you also have Git installed or already present in the system.
-Afterwards check if addon on filesystem level if user, group and permissions are correctly set.
+Afterwards check addons on filesystem level if user, group and permissions are correctly set.
 
 Log into your OSMC commandline.
 
