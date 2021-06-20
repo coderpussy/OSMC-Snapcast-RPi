@@ -5,6 +5,9 @@ This OSMC Snapcast addons bringing now the possibility to let run both, Snapserv
 For now Snapserver is limited to serve only Kodi audio through ALSA loopback device.
 For now Snapclient is only available for people with no need for pulseaudio support.
 
+I know that Kodi v.19 is available now and OSMC is going to change soon to it but as long this is not the case i'm using this on my official OSMC Release with Kodi v.18.
+Maybe one sunny day i will change my systems to LibreELEC for example but for now i'm stuck on my nice running OSMC. :-D
+
 Base Snapcast binaries are of course from the main developer Johannes Pohl [(badaix)](https://github.com/badaix).
 Mainly the ideas to create this addons including code fragments comes from Anton Voyl [(awiouy)](https://github.com/awiouy) for Team LibreELEC (https://libreelec.tv)
 
