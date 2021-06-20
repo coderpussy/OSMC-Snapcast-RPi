@@ -86,6 +86,7 @@ Snapclient should play stream from local Snapserver:
 - Setup Snapclient server host IP address to 127.0.0.1
 - Give your client a unique host ID
 - Set switch for stopping Snapclient if Kodi is playing to disabled
+- In Kodi system settings set audio output to Loopback device
 - Everything else should work now out of the box
 - Play with latency time of Snapclient in case you have asynchronized video/audio
 
