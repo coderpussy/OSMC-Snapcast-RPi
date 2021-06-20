@@ -17,6 +17,10 @@ Mainly the ideas to create this addons including code fragments comes from Anton
 
 A lot of improvements needed. Addons are still in development status. Feel free to report me back issues or improvements. Or if you familiar with coding and Git adjust the code and make a pull request.
 
+- Allow multiple instances for Snapclient
+- Kodi playback paused and resumed event for Snapclient
+
+
 ## Update
 
 #### 2021-06-20

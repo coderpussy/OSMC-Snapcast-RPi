@@ -41,6 +41,12 @@ class Player(xbmc.Player):
         if xbmcaddon.Addon().getSetting('sc_stop_if_kodi_play') == 'true':
             systemctl('start')
 
+    #def onPlayBackPaused():
+        #xbmc.log("Snapcast event onPlayBackPaused!", level=xbmc.LOGNOTICE)
+
+    #def onPlayBackResumed():
+        #xbmc.log("Snapcast event onPlayBackResumed!", level=xbmc.LOGNOTICE)
+
     def start(self, command):
         if xbmcaddon.Addon().getSetting('sc_stop_if_kodi_play') == 'true':
             if self.isPlaying():
