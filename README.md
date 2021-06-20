@@ -19,7 +19,7 @@ A lot of improvements needed. Addons are still in development status. Feel free 
 
 - Allow multiple instances for Snapclient
 - Kodi playback paused and resumed event for Snapclient
-
+- Implement all available configuration settings for Snapclient and Snapserver
 
 ## Update
 
