@@ -6,7 +6,7 @@ For now Snapserver is limited to serve only Kodi audio through ALSA loopback dev
 For now Snapclient is only available for people with no need for pulseaudio support.
 
 Base Snapcast binaries are of course from the main developer Johannes Pohl [(badaix)](https://github.com/badaix).
-Mainly the ideas to create this addons including code fragments comes from Anton Voyl [awiouy](https://github.com/awiouy) for Team LibreELEC (https://libreelec.tv)
+Mainly the ideas to create this addons including code fragments comes from Anton Voyl [(awiouy)](https://github.com/awiouy) for Team LibreELEC (https://libreelec.tv)
 
 [![Platform](https://img.shields.io/badge/platform-OSMC-informational)](https://osmc.tv/) [![Platform](https://img.shields.io/badge/platform-Kodi-informational)](https://kodi.tv/)
 
@@ -92,5 +92,5 @@ Snapclient should play stream from local Snapserver e.g. for Kodi:
 
 ## Credits
 - Many thx to [(badaix)](https://github.com/badaix) for the great [Snapcast](https://github.com/badaix/snapcast) system to inspire me to make a old-fashioned OSMC addon from it.
-- Special thx to Anton Voyl [awiouy](https://github.com/awiouy) for his great work to support Snapcast on LibreELEC Kodi. I reused ;-) a lot of code from him.
+- Special thx to Anton Voyl [(awiouy)](https://github.com/awiouy) for his great work to support Snapcast on LibreELEC Kodi. I reused ;-) a lot of code from him.
 - For LibreELEC reference look at [Snapserver](https://github.com/LibreELEC/LibreELEC.tv/tree/master/packages/addons/service/snapserver) and [Snapclient](https://github.com/LibreELEC/LibreELEC.tv/tree/master/packages/addons/service/snapclient)
