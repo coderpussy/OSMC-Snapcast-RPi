@@ -5,8 +5,7 @@ This OSMC Snapcast addons bringing now the possibility to let run both, Snapserv
 For now Snapserver is limited to serve only Kodi audio through ALSA loopback device.
 For now Snapclient is only available for people with no need for pulseaudio support.
 
-I know that Kodi v.19 is available now and OSMC is going to change soon to it but as long this is not the case i'm using this on my official OSMC Release with Kodi v.18.
-Maybe one sunny day i will change my systems to LibreELEC for example or go further with OSMC. But for now i'm stuck on my nice running old OSMC. :-D
+Addons now supporting OSMC Kodi v.19 Matrix :-D
 
 Base Snapcast binaries are of course from the main developer Johannes Pohl [(badaix)](https://github.com/badaix).
 Mainly the ideas to create this addons including code fragments comes from Anton Voyl [(awiouy)](https://github.com/awiouy) for Team LibreELEC (https://libreelec.tv)
@@ -17,11 +16,16 @@ Mainly the ideas to create this addons including code fragments comes from Anton
 
 A lot of improvements needed. Addons are still in development status. Feel free to report me back issues or improvements. Or if you familiar with coding and Git adjust the code and make a pull request.
 
-- Allow multiple instances for Snapclient
-- Kodi playback paused and resumed event for Snapclient
-- Implement all available configuration settings for Snapclient and Snapserver
+- Allow multiple instances for Snapclient needs inspiration ;-)
+- Functional Kodi playback paused and resumed events for Snapclient
+- Implement all available configuration settings for Snapclient and Snapserver (not done yet)
 
 ## Update
+
+#### 2021-08-17
+- Addons now supporting OSMC Kodi v.19 Matrix
+- Added commented out client instance dev. code
+- Added commented out client pause and resume code
 
 #### 2021-06-20
 - Initial commit with corrected addon structure

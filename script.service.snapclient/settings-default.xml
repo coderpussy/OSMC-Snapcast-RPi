@@ -1,6 +1,7 @@
 <settings version="2">
     <setting id="client_enabled" default="true">true</setting>
     <setting id="sc_manage_onboard_audio" default="true">false</setting>
+    <setting id="sc_instance" default="true">1</setting>
     <setting id="sc_hostID" default="true"></setting>
     <setting id="sc_stop_if_kodi_play" default="true">false</setting>
     <setting id="sc_host" default="true"></setting>
