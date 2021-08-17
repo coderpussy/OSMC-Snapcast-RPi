@@ -115,3 +115,7 @@ msgstr "HDMI Ausgang"
 msgctxt "#30027"
 msgid "Available sound cards"
 msgstr "Verfügbare Soundkarten"
+
+msgctxt "#30028"
+msgid "Instance"
+msgstr "Instanz"

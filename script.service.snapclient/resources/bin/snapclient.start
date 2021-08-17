@@ -13,6 +13,11 @@ if [ "$sc_ce" != "true" ]; then
   exit 0
 fi
 
+sc_i=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_instance"/ {print $3}')
+
+# Loop Snapclient instances
+#for (( c=1; c<=$sc_i; c++ ))
+#do
 sc_a=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_manage_onboard_audio"/ {print $3}')
 sc_h=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_hostID"/ {print $3}')
 #sc_k=$(echo "$ADDONSETTINGS" | awk -F'[<>]' '/<setting id="sc_stop_if_kodi_play"/ {print $3}')
@@ -81,3 +86,5 @@ $sc_s \
 $sc_player \
 $sc_logfilter \
 > /dev/null
+
+#done

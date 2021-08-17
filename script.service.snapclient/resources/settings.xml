@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
-  <category  label="30000">
+  <category label="30000">
     <setting label="30001" type="bool" id="client_enabled" default="true"/>
-    <setting label="30002" type="action" action="RunAddon(script.service.snapclient)" enable="eq(-1,true)"/>
-    <setting label="30003" type="text" id="sc_soundcard" default="" enable="eq(-2,true)"/>
-    <setting label="30004" type="ipaddress" id="sc_host" default="" enable="eq(-3,true)"/>
-    <setting label="30005" type="text" id="sc_hostID" default="" enable="eq(-4,true)"/>
-    <setting label="30006" type="number" id="sc_port" default="1704" enable="eq(-5,true)"/>
-    <setting label="30007" type="slider" id="sc_daemon" default="-3" range="-20,1,19" option="int" enable="eq(-6,true)"/>
-    <setting label="30008" type="number" id="sc_latency" default="0" enable="eq(-7,true)"/>
+    <setting label="30028" type="text" id="sc_instance" default="1" enable="eq(-1,true)"/>
+    <setting label="30002" type="action" action="RunAddon(script.service.snapclient)" enable="eq(-2,true)"/>
+    <setting label="30003" type="text" id="sc_soundcard" default="" enable="eq(-3,true)"/>
+    <setting label="30004" type="ipaddress" id="sc_host" default="" enable="eq(-4,true)"/>
+    <setting label="30005" type="text" id="sc_hostID" default="" enable="eq(-5,true)"/>
+    <setting label="30006" type="number" id="sc_port" default="1704" enable="eq(-6,true)"/>
+    <setting label="30007" type="slider" id="sc_daemon" default="-3" range="-20,1,19" option="int" enable="eq(-7,true)"/>
+    <setting label="30008" type="number" id="sc_latency" default="0" enable="eq(-8,true)"/>
     
     <setting label="30009" type="lsep"/>
     <setting label="30010" type="bool" id="sc_player_settings" default="true"/>

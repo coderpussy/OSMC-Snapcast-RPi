@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="script.service.snapclient"
        name="Snapclient"
-       version="1.0.104"
+       version="1.0.105"
        provider-name="Maja Pieper (coderpussy)">
   <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="xbmc.python" version="3.0.0"/>
   </requires>
   <extension point="xbmc.service" library="service.py" start="login">
     <provides>service</provides>
@@ -20,6 +20,8 @@
     <disclaimer lang="en"></disclaimer>
     <platform>all</platform>
     <news>
+105
+- Addon support for Kodi v.19
 104
 - New Snapcast client v0.25.0-1
 - Added configurable new parameter

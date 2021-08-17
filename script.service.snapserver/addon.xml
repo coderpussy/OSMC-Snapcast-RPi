@@ -4,7 +4,7 @@
        version="1.0.100"
        provider-name="Maja Pieper (coderpussy)">
   <requires>
-    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="xbmc.python" version="3.0.0"/>
   </requires>
   <extension point="xbmc.service" library="service.py" start="login">
     <provides>service</provides>
@@ -17,6 +17,8 @@
     <disclaimer lang="en"></disclaimer>
     <platform>all</platform>
     <news>
+101
+- Addon support for Kodi v.19
 100
 - Initial addon
     </news>
