@@ -12,7 +12,8 @@ SNAPCLIENT = os.path.join(xbmcaddon.Addon().getAddonInfo('path'), 'resources/bin
 line = ''
 card = ''
 cards = []
-lines = subprocess.check_output([SNAPCLIENT, '--list']).splitlines()
+lines = subprocess.run([SNAPCLIENT, '--list'], capture_output=True, text=True).stdout.splitlines()
+#lines = subprocess.check_output([SNAPCLIENT, '--list']).splitlines()
 
 for line in lines:
     if line != '':
