@@ -13,7 +13,6 @@ line = ''
 card = ''
 cards = []
 lines = subprocess.run([SNAPCLIENT, '--list'], capture_output=True, text=True).stdout.splitlines()
-#lines = subprocess.check_output([SNAPCLIENT, '--list']).splitlines()
 
 for line in lines:
     if line != '':
